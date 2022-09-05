@@ -40,6 +40,10 @@ Comment.init(
             key: 'userID',
          }
       }
+   },
+   {
+      sequelize,
+      modelName: 'comments',
    }
 );
 

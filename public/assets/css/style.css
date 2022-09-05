@@ -1,0 +1,11 @@
+.card {
+   margin-top: 20px;
+   text-decoration: none;
+}
+
+.link-unstyled,
+.link-unstyled:link,
+.link-unstyled:hover {
+   color: inherit;
+   text-decoration: inherit;
+}

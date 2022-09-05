@@ -3,9 +3,11 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const expressSession = require('express-session');
 
+const moment = require('moment');
+
 const SequelizeStore = require('connect-session-sequelize')(expressSession.Store);
 const sequelize = require('./config/connection');
-//routes
+const routes = require('./routes');
 
 const handlebars = expressHandlebars.create();
 
@@ -24,7 +26,7 @@ const PORT = process.env.PORT || 3001;
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.status('public'));
+app.use(express.static('public'));
 
 app.use(expressSession(sessionSettings));
 
@@ -34,5 +36,5 @@ app.use(express.urlencoded({extended: true}));
 app.use(routes);
 
 sequelize.sync({force: false}).then(() => {
-   app.listen(PORT, () => console.log('server up'));
+   app.listen(PORT, () => console.log('server up at ' + moment().format('MMM Do YYYY, h:mm:ss a')));
 });

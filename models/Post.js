@@ -19,7 +19,7 @@ Post.init(
          }
       },
       content: {
-         type: DataTypes.STRING,
+         type: DataTypes.TEXT('long'),
          allowNull: false,
          validate: {
             notNull: true,
@@ -35,7 +35,25 @@ Post.init(
             model: 'users',
             key: 'userID',
          }
+      },
+      dateCreated: {
+         type: DataTypes.DATEONLY,
+         defaultValue: DataTypes.NOW,
+         get() {
+            return this.getDataValue('dateCreated').toLocaleString('en-GB', {timezone: 'UTC'});
+         }
+      },
+      timeCreated: {
+         type: DataTypes.TIME,
+         defaultValue: DataTypes.NOW,
+         get() {
+            return this.getDataValue('timeCreated').toLocaleString('en-GB', {timezone: 'UTC'});
+         }
       }
+   },
+   {
+      sequelize,
+      modelName: 'posts',
    }
 );
 
