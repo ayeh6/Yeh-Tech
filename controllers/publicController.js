@@ -36,27 +36,39 @@ const getHomePage = async (req, res) => {
 }
 
 const getUserDashboardPage = async (req, res) => {
+   res.render('dashboard', {
 
+   });
 }
 
 const getPostPage = async (req, res) => {
+   res.render('post', {
 
+   });
 }
 
 const getCreatePostPage = async (req, res) => {
+   res.render('create', {
 
+   });
 }
 
 const getEditorPage = async (req, res) => {
+   res.render('editor', {
 
+   });
 }
 
 const getLoginPage = async (req, res) => {
+   res.render('login', {
 
+   });
 }
 
 const getSignUpPage = async (req, res) => {
+   res.render('signup', {
 
+   });
 }
 
 module.exports = {
