@@ -1,15 +1,20 @@
 <main class="container">
+   <div class="row">
+      <button type="button" class="btn btn-primary mb-3">Create Post</button>
+   </div>
    {{#each posts as |post|}}
    <div class="row">
-      <a class="card col link-unstyled" style="width: 18:rem;" href="/posts/{{post.postID}}">
+      <div class="card col">
          <div class="card-body">
             <div class="row">
-               <h4 class="card-title col">{{post.title}}</h5>
-               <h6 class="card-subtitle col text-end">Posted by {{post.username}} on {{post.dateCreated}} at {{post.timeCreated}}</h6>
+               <a class="link-unstyled" href="/posts/{{post.postID}}">
+                  <h3 class="card-title col">{{post.title}}</h3>
+               </a>
+               <h6 class="mt-0 card-subtitle col">Posted by {{post.username}} on {{post.dateCreated}} at {{post.timeCreated}}</h6>
             </div>
-            <p class="card-text">{{post.content}}</p>
+            <p class="mt-1 card-text">{{post.content}}</p>
          </div>
-      </a>
+      </div>
    </div>
    {{/each}}
 </main>

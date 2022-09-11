@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand bg-light">
+<nav class="navbar navbar-expand fixed-top bg-light">
    <div class="container-fluid">
       <a class="navbar-brand">Yeh Tech</a>
       <ul class="navbar-nav me-auto mb-lg-0">
@@ -6,17 +6,18 @@
             <a class="nav-link" href="/">Home</a>
          </li>
          <li class="nav-item">
-            {{#if signedin}}
-            <a class="nav-link" href="/users/{{user.username}}">Dashboard</a>
+            {{#if loggedInUser.isLoggedIn}}
+            <a class="nav-link" href="/users/{{loggedInUser.username}}">Dashboard</a>
             {{else}}
             <a class="nav-link" href="/login">Dashboard</a>
             {{/if}}
          </li>
       </ul>
-      {{#if signedin}}
-      <a class="nav-link" href="#">Sign Out</a>
+      {{#if loggedInUser.isLoggedIn}}
+      <a id="sign-out-link" class="nav-link">Sign Out</a>
       {{else}}
       <a class="nav-link" href="/login">Login</a>
       {{/if}}
    </div>
 </nav>
+<script src="/assets/js/navbar.js"></script>

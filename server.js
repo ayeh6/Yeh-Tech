@@ -9,7 +9,11 @@ const SequelizeStore = require('connect-session-sequelize')(expressSession.Store
 const sequelize = require('./config/connection');
 const routes = require('./routes');
 
-const handlebars = expressHandlebars.create();
+const helpers = require('./utils/helpers');
+
+const handlebars = expressHandlebars.create({
+   helpers,
+});
 
 const sessionSettings = {
    secret: process.env.SESSION_SECRET,
