@@ -1,12 +1,42 @@
-<main>
-   <div class="card col" style="width: 18:rem;">
+<main class="container">
+   <div class="card col mb-3">
       <div class="card-body">
          <div class="row">
             <a class="link-unstyled">
                <h3 class="card-title col">{{post.title}}</h3>
             </a>
+            <h6 class="mt-0 card-subtitle col">
+               Posted by {{post.username}} on {{post.dateCreated}} at {{post.timeCreated}}
+            </h6>
          </div>
          <p class="mt-1 card-text">{{post.content}}</p>
       </div>
    </div>
+   <div class="card col">
+      <div class="card-body">
+         <textarea id="comment-text-area" class="form-control mb-2" rows="3"></textarea>
+         {{#if loggedInUser.isLoggedIn}}
+         <button id="comment-button" class="btn btn-primary mb-3">Comment</button>
+         {{else}}
+         <button class="btn btn-primary mb-3" onclick="location.href = '/login'">Comment</button>
+         {{/if}}
+         {{#each comments as |comment|}}
+         <div class="card mb-2">
+            <div class="card-body">
+               <h6 class="text-start">{{comment.user.username}} {{comment.dateCreated}} @ {{comment.timeCreated}}</h6>
+               <p id="PTAG-{{comment.commentID}}" class="card-text">{{comment.comment}}</p>
+               {{#stringMatch ../loggedInUser.username comment.user.username}}
+               <button id="edit-btn" data-id={{comment.commentID}} class="btn btn-info">Edit</button>
+               <button id="delete-btn" data-id={{comment.commentID}} class="btn btn-danger">Delete</button>
+               <textarea id="TATAG-{{comment.commentID}}" class="form-control" rows="3"
+                  style="display: none;">{{comment.comment}}</textarea>
+               {{/stringMatch}}
+            </div>
+         </div>
+         {{/each}}
+      </div>
+   </div>
 </main>
+{{#if loggedInUser.isLoggedIn}}
+<script src="/assets/js/postUserActions.js"></script>
+{{/if}}

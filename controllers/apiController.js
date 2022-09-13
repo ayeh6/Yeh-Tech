@@ -64,8 +64,20 @@ const deletePost = (req,res) => {
 
 }
 
-const createComment = (req,res) => {
-
+const createComment = async (req,res) => {
+   try {
+      const userID = req.session.user.userID;
+      const newComment = {
+         ...req.body,
+         userID: userID,
+      };
+      console.log(newComment);
+      await Comment.create(newComment);
+      res.status(200).json(newComment);
+   } catch(error) {
+      console.error(error);
+      res.status(500).json({error});
+   }
 }
 
 const updateComment = (req,res) => {

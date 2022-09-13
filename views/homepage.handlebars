@@ -1,10 +1,14 @@
 <main class="container">
    <div class="row">
-      <button type="button" class="btn btn-primary mb-3">Create Post</button>
+      {{#if loggedInUser.isLoggedIn}}
+      <button type="button" class="btn btn-primary mb-3" onclick="location.href = '/posts/create'">Create Post</button>
+      {{else}}
+      <button type="button" class="btn btn-primary mb-3" onclick="location.href = '/login'">Create Post</button>
+      {{/if}}
    </div>
    {{#each posts as |post|}}
    <div class="row">
-      <div class="card col">
+      <div class="card col mb-3">
          <div class="card-body">
             <div class="row">
                <a class="link-unstyled" href="/posts/{{post.postID}}">

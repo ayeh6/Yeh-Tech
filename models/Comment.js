@@ -1,8 +1,8 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const {nanoid} = require('nanoid');
+const { nanoid } = require('nanoid');
 
-class Comment extends Model {}
+class Comment extends Model { }
 
 Comment.init(
    {
@@ -38,6 +38,20 @@ Comment.init(
          references: {
             model: 'users',
             key: 'userID',
+         }
+      },
+      dateCreated: {
+         type: DataTypes.DATEONLY,
+         defaultValue: DataTypes.NOW,
+         get() {
+            return this.getDataValue('dateCreated').toLocaleString('en-GB', {timezone: 'UTC'});
+         }
+      },
+      timeCreated: {
+         type: DataTypes.TIME,
+         defaultValue: DataTypes.NOW,
+         get() {
+            return this.getDataValue('timeCreated').toLocaleString('en-GB', {timezone: 'UTC'});
          }
       }
    },

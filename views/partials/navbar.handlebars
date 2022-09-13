@@ -20,4 +20,6 @@
       {{/if}}
    </div>
 </nav>
-<script src="/assets/js/navbar.js"></script>
+{{#if loggedInUser.isLoggedIn}}
+<script src="/assets/js/signout.js"></script>
+{{/if}}

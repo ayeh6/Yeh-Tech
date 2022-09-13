@@ -56,7 +56,6 @@ const getHomePage = async (req, res) => {
 }
 
 const getUserDashboardPage = async (req, res) => {
-   console.log(req);
    const user = await User.findOne({
       attributes: [
          'userID',
@@ -145,12 +144,59 @@ const getPostPage = async (req, res) => {
       });
       return;
    }
-   const post = postData.dataValues;
-   console.log(post);
+   const post = postData.get({plain: true});
+
+   const commentQuery = await Comment.findAll({
+      order: [
+         ['createdAt', 'DESC']
+      ],
+      attributes: [
+         'commentID',
+         'comment',
+         [
+            sequelize.fn(
+               "DATE_FORMAT",
+               sequelize.col("dateCreated"),
+               "%m/%d/%Y",
+            ),
+            "dateCreated",
+         ],
+         [
+            sequelize.fn(
+               "DATE_FORMAT",
+               sequelize.col("timeCreated"),
+               "%h:%i %p"
+            ),
+            "timeCreated",
+         ],
+      ],
+      include: [
+         {
+            model: User,
+            attributes: {
+               exclude: [
+                  'userID',
+                  'password',
+                  'createdAt',
+                  'updatedAt',
+               ]
+            }
+         }
+      ],
+      where: {
+         postID: postID,
+      }
+   });
+   const comments = commentQuery.map(comment => comment.get({plain:true}));
+
    const loggedInUser = getLoggedInUser(req);
+   const session = req.session;
+   console.log(session);
    res.render('post', {
-      loggedInUser,
       post,
+      comments,
+      loggedInUser,
+      session,
    });
 }
 
