@@ -111,6 +111,7 @@ const getPostPage = async (req, res) => {
    const postID = req.params.postID;
    const postData = await Post.findOne({
       attributes: [
+         'postID',
          'title',
          'content',
          [

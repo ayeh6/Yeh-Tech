@@ -80,12 +80,39 @@ const createComment = async (req,res) => {
    }
 }
 
-const updateComment = (req,res) => {
+const updateComment = async (req,res) => {
+   try {
+      const commentID = req.params.commentID;
+      const updatedComment = req.body.updatedComment;
 
+      await Comment.update({
+         comment: updatedComment,
+      },
+      {
+         where: {
+            commentID: commentID
+         }
+      });
+      res.status(200).json("success");
+   } catch(error) {
+      console.error(error);
+      res.status(500).json({error})
+   }
 }
 
-const deleteComment = (req,res) => {
-
+const deleteComment = async (req,res) => {
+   try {
+      const commentID = req.params.commentID;
+      await Comment.destroy({
+         where: {
+            commentID: commentID,
+         }
+      });
+      res.status(200).json({success: true});
+   } catch(error) {
+      console.error(error);
+      res.status(500).json({error});
+   }
 }
 
 module.exports = {

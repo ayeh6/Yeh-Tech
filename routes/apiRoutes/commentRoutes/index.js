@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const apiController = require('../../../controllers/apiController');
 
-router.use('/create', apiController.createComment);
-router.use('/update/:commentID', apiController.updateComment);
-router.use('/delete/:commentID', apiController.deleteComment);
+router.route('/create').post(apiController.createComment);
+router.route('/update/:commentID').patch(apiController.updateComment);
+router.route('/delete/:commentID').delete(apiController.deleteComment);
 
 module.exports = router;

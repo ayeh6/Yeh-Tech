@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const apiController = require('../../../controllers/apiController');
 
-router.use('/signout', apiController.signoutUser);
-router.use('/signup', apiController.signupUser);
-router.use('/login', apiController.loginUser);
+router.route('/signout').post(apiController.signoutUser);
+router.route('/signup').post(apiController.signupUser);
+router.route('/login').post(apiController.loginUser);
 
 module.exports = router;
