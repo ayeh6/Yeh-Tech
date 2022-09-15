@@ -1,26 +1,26 @@
 module.exports = [
    {
-      title: 'Lorem ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Rhoncus dolor purus non enim. Tortor condimentum lacinia quis vel eros donec ac odio. Nam libero justo laoreet sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Sed vulputate mi sit amet mauris commodo quis. Quis commodo odio aenean sed adipiscing. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget magna fermentum iaculis eu non diam. Non arcu risus quis varius quam quisque id. Eu facilisis sed odio morbi quis.',
+      title: 'iPhone 14',
+      content: 'Getting a new iphone! Can\'t wait to see how the dynamic island works!',
    },
    {
-      title: 'Lorem ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Rhoncus dolor purus non enim. Tortor condimentum lacinia quis vel eros donec ac odio. Nam libero justo laoreet sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Sed vulputate mi sit amet mauris commodo quis. Quis commodo odio aenean sed adipiscing. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget magna fermentum iaculis eu non diam. Non arcu risus quis varius quam quisque id. Eu facilisis sed odio morbi quis.',
+      title: 'New desktop audio setup',
+      content: 'Recently got a Schiit stack. Using the Modi 3 as a DAC to go into a Loki tone controller, then into a Magni Hersey to power my headphones and speaker setup.',
    },
    {
-      title: 'Lorem ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Rhoncus dolor purus non enim. Tortor condimentum lacinia quis vel eros donec ac odio. Nam libero justo laoreet sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Sed vulputate mi sit amet mauris commodo quis. Quis commodo odio aenean sed adipiscing. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget magna fermentum iaculis eu non diam. Non arcu risus quis varius quam quisque id. Eu facilisis sed odio morbi quis.',
+      title: 'iPad OS delay',
+      content: 'Still can\'t believe iOS 16 is out, but we still don\'t have the new iPadOS',
    },
    {
-      title: 'Lorem ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Rhoncus dolor purus non enim. Tortor condimentum lacinia quis vel eros donec ac odio. Nam libero justo laoreet sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Sed vulputate mi sit amet mauris commodo quis. Quis commodo odio aenean sed adipiscing. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget magna fermentum iaculis eu non diam. Non arcu risus quis varius quam quisque id. Eu facilisis sed odio morbi quis.',
+      title: '12900k underclocking',
+      content: 'Recently underclocked my new 12900k cpu since it just uses unecessary voltage just to get the same clocks at a lower voltage. Temps dropped about 5 degrees overall.',
    },
    {
-      title: 'Lorem ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Rhoncus dolor purus non enim. Tortor condimentum lacinia quis vel eros donec ac odio. Nam libero justo laoreet sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Sed vulputate mi sit amet mauris commodo quis. Quis commodo odio aenean sed adipiscing. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget magna fermentum iaculis eu non diam. Non arcu risus quis varius quam quisque id. Eu facilisis sed odio morbi quis.',
+      title: 'Switching to Apple Music',
+      content: 'Recently made the switch from Spotify to Apple Music. I don\'t usually get excited for the end of the year wrapped nowadays. Mainly want the lossless quality, Tidal is technically lossless but uses MQA which is techincally a lossy format. Apple Music is true lossless and even shows the bitrate for each song with a single tap. I even have Apple Music for free because of my phone carrier!',
    },
    {
-      title: 'Lorem ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Rhoncus dolor purus non enim. Tortor condimentum lacinia quis vel eros donec ac odio. Nam libero justo laoreet sit. Scelerisque purus semper eget duis at tellus at urna condimentum. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Sed vulputate mi sit amet mauris commodo quis. Quis commodo odio aenean sed adipiscing. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Eget magna fermentum iaculis eu non diam. Non arcu risus quis varius quam quisque id. Eu facilisis sed odio morbi quis.',
+      title: 'Planar Headphones',
+      content: 'Got into a dangerous potential hobby of audiophile equipment and have been shopping for headphones. Planar headphones are interesting since they use a completely different technology compared to normal headphones, this new technology results in apparently darker sound which gives a more full low-end.',
    },
 ]
