@@ -18,7 +18,7 @@ const editPost = async () => {
          body: JSON.stringify(post),
       });
       await res.json();
-      window.location.href = '/';
+      window.location.href = '/dashboard';
    } catch(error) {
       console.error(error);
       alert(error);

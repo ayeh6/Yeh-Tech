@@ -23,7 +23,7 @@
          {{#each comments as |comment|}}
          <div class="card mb-2">
             <div class="card-body">
-               <h6 class="text-start">{{comment.user.username}} {{comment.dateCreated}} @ {{comment.timeCreated}}</h6>
+               <h6 class="text-start">{{comment.user.username}} {{comment.dateCreated}}</h6>
                <p id="comment-p" {{#stringMatch ../loggedInUser.username comment.user.username}} data-comment-id={{comment.commentID}} {{/stringMatch}} class="card-text">{{comment.comment}}</p>
                {{#stringMatch ../loggedInUser.username comment.user.username}}
                <textarea id="edit-comment-textarea" data-comment-id={{comment.commentID}} class="form-control mb-2" rows="3"

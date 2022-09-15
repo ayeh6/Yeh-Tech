@@ -55,15 +55,19 @@ const getHomePage = async (req, res) => {
    res.render('homepage', {
       posts,
       loggedInUser,
-   })
+   });
 }
 
 const getUserDashboardPage = async (req, res) => {
    let inputUsername;
-   if(req.params.username === undefined) {
+   if(req.session.user !== undefined) {
       inputUsername = req.session.user.username;
-   } else {
+   } else if(req.params.username !== undefined) {
       inputUsername = req.params.username;
+   } else {
+      res.render('login', {
+      });
+      return;
    }
    const user = await User.findOne({
       attributes: [

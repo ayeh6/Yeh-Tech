@@ -1,6 +1,6 @@
 const titleInputEl = document.getElementById('create-post-title-input');
 const contentTextAreaEl = document.getElementById('create-post-content-textarea');
-const postButtonEl = document.getElementById('create-post-button');
+const postBtnEl = document.getElementById('create-post-btn');
 
 const createPost = async () => {
    const title = titleInputEl.value;
@@ -21,7 +21,7 @@ const createPost = async () => {
       const response = await res.json();
       console.log(response);
       if(response === "success") {
-         window.location.href = '/';
+         window.location.href = '/dashboard';
       }
    } catch(error) {
       console.error(error);
@@ -29,4 +29,4 @@ const createPost = async () => {
    }
 }
 
-postButtonEl.addEventListener('click', createPost);
+postBtnEl.addEventListener('click', createPost);

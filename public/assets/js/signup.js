@@ -1,7 +1,7 @@
 const signUpUsernameInputEl = document.getElementById('signup-username-input');
 const signUpPasswordInputEl = document.getElementById('signup-password-input');
 const signUpPasswordConfirmInputEl = document.getElementById('signup-password-confirm-input');
-const signUpButtonEl = document.getElementById('signup-button');
+const signUpBtnEl = document.getElementById('signup-btn');
 
 const signUp = async() => {
    const username = signUpUsernameInputEl.value;
@@ -47,4 +47,4 @@ const signUp = async() => {
    }
 }
 
-signUpButtonEl.addEventListener('click', signUp);
+signUpBtnEl.addEventListener('click', signUp);

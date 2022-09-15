@@ -23,7 +23,7 @@ const sessionSettings = {
       db: sequelize,
    }),
    cookie: {
-      //expires: 60000
+      expires: 60000
    }
 }
 
