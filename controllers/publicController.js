@@ -21,6 +21,9 @@ const getLoggedInUser = (req) => {
 
 const getHomePage = async (req, res) => {
    const postsData = await Post.findAll({
+      order: [
+         ['createdAt', 'DESC']
+      ],
       attributes: [
          'postID',
          'title',
@@ -56,13 +59,19 @@ const getHomePage = async (req, res) => {
 }
 
 const getUserDashboardPage = async (req, res) => {
+   let inputUsername;
+   if(req.params.username === undefined) {
+      inputUsername = req.session.user.username;
+   } else {
+      inputUsername = req.params.username;
+   }
    const user = await User.findOne({
       attributes: [
          'userID',
          'username',
       ],
       where: {
-         username: req.params.username
+         username: inputUsername,
       }
    });
    if(!user) {
@@ -72,6 +81,9 @@ const getUserDashboardPage = async (req, res) => {
       return;
    }
    const postsData = await Post.findAll({
+      order: [
+         ['createdAt', 'DESC']
+      ],
       attributes: [
          'postID',
          'title',
@@ -202,26 +214,34 @@ const getPostPage = async (req, res) => {
 }
 
 const getCreatePostPage = async (req, res) => {
+   const loggedInUser = getLoggedInUser(req);
    res.render('create', {
-
+      loggedInUser,
    });
 }
 
 const getEditorPage = async (req, res) => {
+   const postID = req.params.postID;
+   const postData = await Post.findOne({
+      where: {
+         postID: postID,
+      }
+   });
+   const post = postData.get({plain: true});
+   const loggedInUser = getLoggedInUser(req);
    res.render('editor', {
-
+      post,
+      loggedInUser,
    });
 }
 
 const getLoginPage = async (req, res) => {
    res.render('login', {
-
    });
 }
 
 const getSignUpPage = async (req, res) => {
    res.render('signup', {
-
    });
 }
 

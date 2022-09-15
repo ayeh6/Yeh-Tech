@@ -1,1 +1,7 @@
-<div>Not done yet</div>
+<main class="container">
+   <h2>Edit post</h2>
+   <input id="edit-post-title-input" type="text" class="form-control mb-3" placeholder="Title" value={{post.title}}>
+   <textarea id="edit-post-content-textarea" class="form-control mb-3" rows="8" placeholder="Content">{{post.content}}</textarea>
+   <button id="edit-post-btn" data-post-id={{post.postID}} class="btn btn-primary">Publish</button>
+</main>
+<script src="/assets/js/editPost.js"></script>

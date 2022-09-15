@@ -52,16 +52,59 @@ const loginUser = async (req,res) => {
    }
 }
 
-const createPost = (req,res) => {
-
+const createPost = async (req,res) => {
+   try {
+      const userID = req.session.user.userID;
+      const post = req.body;
+      post.userID = userID;
+      console.log(post);
+      await Post.create(post);
+      res.status(200).json("success");
+   } catch(error) {
+      console.error(error);
+      res.status(500).json({error});
+   }
 }
 
-const updatePost = (req,res) => {
-
+const updatePost = async (req,res) => {
+   const postID = req.params.postID;
+   const updatedPost = req.body;
+   try {
+      const postQuery = await Post.findOne({
+         where: {
+            postID: postID,
+         }
+      });
+      await postQuery.update(updatedPost);
+      res.status(200).json("success");
+   } catch(error) {
+      console.error(error);
+      res.status(500).json({error});
+   }
 }
 
-const deletePost = (req,res) => {
-
+const deletePost = async (req,res) => {
+   try {
+      const userID = req.session.user.userID;
+      const post = await Post.findOne({
+         where: {
+            postID: req.params.postID,
+         }
+      });
+      if(post.dataValues.userID !== userID) {
+         res.status(401).json("You are not authorized to delete this post");
+      } else {
+         await Post.destroy({
+            where: {
+               postID: req.params.postID,
+            }
+         });
+         res.status(200).json("success");
+      }
+   } catch(error) {
+      console.error(error);
+      res.status(500).json({error});
+   }
 }
 
 const createComment = async (req,res) => {
@@ -73,7 +116,7 @@ const createComment = async (req,res) => {
       };
       console.log(newComment);
       await Comment.create(newComment);
-      res.status(200).json(newComment);
+      res.status(200).json("success");
    } catch(error) {
       console.error(error);
       res.status(500).json({error});

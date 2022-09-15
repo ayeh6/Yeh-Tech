@@ -1,13 +1,13 @@
 <main class="container">
-   <h2>{{username}}'s Posts</h2>
+   <h2 class="mb-3">{{username}}'s Posts</h2>
    {{#stringMatch loggedInUser.username username}}
    <div class="row">
-      <button type="button" class="btn btn-primary mb-3">Create Post</button>
+      <button type="button" class="btn btn-primary mb-3" onclick="location.href='/posts/create'">Create Post</button>
    </div>
    {{/stringMatch}}
    {{#each posts as |post|}}
    <div class="row">
-      <div class="card col">
+      <div class="card col mb-3">
          <div class="card-body">
             <div class="row">
                <a class="link-unstyled" href="/posts/{{post.postID}}">
@@ -15,8 +15,15 @@
                </a>
             </div>
             <p class="mt-1 card-text">{{post.content}}</p>
+            {{#stringMatch ../loggedInUser.username ../username}}
+            <div class="d-flex justify-content-end">
+               <button id="edit-post-btn" class="btn btn-info me-1" data-post-id={{post.postID}}>Edit</button>
+               <button id="delete-post-btn" class="btn btn-danger" data-post-id={{post.postID}}>Delete</button>
+            </div>
+            {{/stringMatch}}
          </div>
       </div>
    </div>
    {{/each}}
 </main>
+<script src="/assets/js/dashboard.js"></script>

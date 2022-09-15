@@ -22,6 +22,9 @@ const sessionSettings = {
    store: new SequelizeStore({
       db: sequelize,
    }),
+   cookie: {
+      //expires: 60000
+   }
 }
 
 const app = express();
